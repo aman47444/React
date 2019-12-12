@@ -21,7 +21,12 @@ class Navbar extends Component {
                     <div className="sidebar_drawer">
                         <Sidedrawer click={this.props.togglehandle} />
                     </div>
-                    <div className="menu_logo"><a href="#"><img src={img2} /></a></div>
+                    <div className="menu_logo">
+                        <a href="#">
+                            <li><img src={img2} /></li>
+                            <li><span>Master-G</span></li>
+                        </a>    
+                    </div>
                     <div className="spacer" />
                     <div className="menu_item">
                         <ul>
@@ -29,7 +34,7 @@ class Navbar extends Component {
                             <li><a href="#">Teacher </a></li>
                             <li><a href="#">Study </a></li>
                             <li><a href="#">About </a></li>
-                            {/* <li><button>Login</button></li> */}
+                            <li><button>Login</button></li>
                         </ul>
                     </div>
                 </nav>
