@@ -40,7 +40,16 @@ p {
   padding-bottom: 12px;
   line-height: 3;
 }
-
+.content {
+  padding: 50px 2% 250px;
+}
+.row {
+  width: 100%;
+  max-width: 940px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 2%;
+}
 .mouse {
   display: block;
   margin: 0 auto;

@@ -4,14 +4,14 @@ class DashBoard extends Component {
     render() {
         return (
             <div>
-                <div class="hero">
+                <div className="hero">
                     <h1><span>I'm a cool</span><br />Follow Passion</h1>
-                    <div class="mouse">
+                    <div className="mouse">
                         <span></span>
                     </div>
                 </div>
-                <div class="row content">
-                    <h1 class="sec01">Section 01</h1>
+                <div className="row content">
+                    <h1 className="sec01">Section 01</h1>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum,
                         recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint
@@ -37,7 +37,7 @@ class DashBoard extends Component {
                         vitae quidem consequatur deleniti recusandae odit officiis. Quidem,
                         cupiditate.
                     </p>
-                    <h1 class="sec02">Section 02</h1>
+                    <h1 className="sec02">Section 02</h1>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum,
                         recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint
@@ -63,7 +63,7 @@ class DashBoard extends Component {
                         vitae quidem consequatur deleniti recusandae odit officiis. Quidem,
                         cupiditate.
                     </p>
-                    <h1 class="sec03">Section 03</h1>
+                    <h1 className="sec03">Section 03</h1>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum,
                         recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint
@@ -89,7 +89,7 @@ class DashBoard extends Component {
                         vitae quidem consequatur deleniti recusandae odit officiis. Quidem,
                         cupiditate.
                     </p>
-                    <h1 class="sec04">Section 04</h1>
+                    <h1 className="sec04">Section 04</h1>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum,
                         recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint
