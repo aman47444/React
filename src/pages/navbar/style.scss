@@ -1,8 +1,8 @@
 .main_menu {
   width: 100%;
-  height: 90px;
-  position: fixed;
-  background: white;
+  height: 80px;
+  position: sticky;
+  background: rgb(9, 9, 39);
   top: 0;
   left: 0;
   z-index: 999;
@@ -14,24 +14,24 @@
     padding: 0 2%;
     align-items: center;
     a {
-      color: black;
+      color: white;
       text-decoration: none;
       font-size: 18px;
     }
   }
   .menu_logo a {
-    color: black;
+    color: white;
     text-decoration: none;
     font-size: 1.5rem;
     img {
-      width: 170px;
+      width: 150px;
     }
   }
   .menu_logo {
     margin-left: 1%;
   }
   .menu_item a {
-    color: black;
+    color: white;
     text-decoration: none;
   }
   .menu_item ul {
@@ -83,7 +83,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 20px;
+  height: 30px;
   width: 36px;
   background: transparent;
   border: none;
@@ -95,9 +95,9 @@
   outline: none;
 }
 .menu_button_item {
-  width: 30px;
-  height: 2px;
-  background: black;
+  width: 52px;
+  height: 3px;
+  background: white;
 }
 
 // drawer scss
