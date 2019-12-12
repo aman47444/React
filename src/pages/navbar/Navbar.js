@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './style.scss';
 import Sidedrawer from './Sidedrawer';
+import img2 from '../../images/img2.png'
 class Navbar extends Component {
     constructor(props) {
         super(props);
@@ -20,14 +21,15 @@ class Navbar extends Component {
                     <div className="sidebar_drawer">
                         <Sidedrawer click={this.props.togglehandle} />
                     </div>
-                    <div className="menu_logo"><a href="#">P/F</a></div>
+                    <div className="menu_logo"><a href="#"><img src={img2} /></a></div>
                     <div className="spacer" />
                     <div className="menu_item">
                         <ul>
-                            <li><a href="#">Section 1</a></li>
-                            <li><a href="#">Section 2</a></li>
-                            <li><a href="#">Section 3</a></li>
-                            <li><a href="#">Section 4</a></li>
+                            <li><a href="#">Student </a></li>
+                            <li><a href="#">Teacher </a></li>
+                            <li><a href="#">Study </a></li>
+                            <li><a href="#">About </a></li>
+                            {/* <li><button>Login</button></li> */}
                         </ul>
                     </div>
                 </nav>

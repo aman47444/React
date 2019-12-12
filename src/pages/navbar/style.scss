@@ -1,50 +1,63 @@
 .main_menu {
   width: 100%;
-  height: 70px;
+  height: 90px;
   position: fixed;
   background: white;
   top: 0;
   left: 0;
   z-index: 999;
   border-bottom: 1px solid rgb(16, 16, 68);
- 
+
   .menu_nav {
     display: flex;
     height: 100%;
     padding: 0 2%;
     align-items: center;
     a {
-      color: gray;
+      color: black;
       text-decoration: none;
-      font-size: 1.5rem;
+      font-size: 18px;
     }
   }
   .menu_logo a {
-    color: gray;
+    color: black;
     text-decoration: none;
     font-size: 1.5rem;
+    img {
+      width: 170px;
+    }
   }
   .menu_logo {
     margin-left: 1%;
   }
   .menu_item a {
-    color: gray;
+    color: black;
     text-decoration: none;
-    
   }
   .menu_item ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     li {
-      padding: 0 2%;
-       
+      padding: 0 20px;
+    }
+    button {
+      align-items: center;
+      background-color: #555555;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
     }
   }
   .menu_item a:hover,
-  .menu_item a:active {
+  .menu_item a:active,
+  .menu_item a:focus {
     color: black;
   }
   .spacer {
@@ -56,16 +69,15 @@
     display: none;
   }
 }
-@media only screen and (min-width:769px) {
-   .sidebar_drawer {
-     display: none;
-   }
-   .menu_logo {
-     margin-left: 0;
-   }
-
+@media only screen and (min-width: 769px) {
+  .sidebar_drawer {
+    display: none;
+  }
+  .menu_logo {
+    margin-left: 0;
+  }
 }
- // Sidedrawer scss
+// Sidedrawer scss
 
 .menu_button {
   display: flex;
@@ -92,8 +104,8 @@
 .drawer-side {
   height: 100%;
   width: 60%;
-  background: white;
-  box-shadow: 2px 0px 5px gray;
+  background: rgba(16, 16, 66, 0.89);
+  box-shadow: 2px 0px 5px black;
   position: fixed;
   top: 0;
   left: 0;
@@ -111,14 +123,15 @@
     }
   }
   a {
-    color: gray;
+    color: white;
     text-decoration: none;
     font-size: 25px;
-    &:focus, &:active {
+    &:focus,
+    &:active {
       color: black;
     }
   }
-  @media only screen and (min-width:769px) {
+  @media only screen and (min-width: 769px) {
     .drawer-side {
       display: none;
     }
@@ -132,9 +145,7 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  background: gray;
   z-index: 100;
   top: 0;
   left: 0;
-
 }
