@@ -7,7 +7,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React, { Component } from 'react';
 import Sidedrawer from './pages/navbar/Sidedrawer';
 import Footer from './pages/footer/Footer';
-import Login from './pages/Login/Login';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register'
 class App extends Component {
   constructor() {
     super();
@@ -40,6 +41,7 @@ class App extends Component {
           <Switch>
               <Route exact path="/" component={DashBoard}></Route>
               <Route path="/login" component={Login}></Route>
+              <Route path="/res" component={Register}></Route>
           </Switch>
           <Footer />
         </Router>
