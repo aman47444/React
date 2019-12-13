@@ -3,9 +3,11 @@ import Navbar from './pages/navbar/Navbar';
 import DashBoard from './pages/dashboard/DashBoard';
 import Drawer from './pages/navbar/Drawer';
 import Backdrop from './pages/navbar/Backdrop';
-
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React, { Component } from 'react';
 import Sidedrawer from './pages/navbar/Sidedrawer';
+import Footer from './pages/footer/Footer';
+import Login from './pages/Login/Login';
 class App extends Component {
   constructor() {
     super();
@@ -21,22 +23,26 @@ class App extends Component {
     })
   }
   backdropClick = () => {
-    this.setState({sideDrawerOpen: false})
+    this.setState({ sideDrawerOpen: false })
   }
   render() {
     let sideDrawer;
     let backdrop;
-    if(this.state.sideDrawerOpen) {
-      // sideDrawer = <Drawer />
+    if (this.state.sideDrawerOpen) {
       backdrop = <Backdrop click={this.backdropClick} />
     }
     return (
-      <div className="App">
-        <Navbar togglehandle = {this.togglehandle} />
-        {/* {sideDrawer} */}
-        <Drawer show={this.state.sideDrawerOpen} />
-        {backdrop}
-        <DashBoard />
+      <div>
+        <Router>
+          <Navbar togglehandle={this.togglehandle} />
+          <Drawer show={this.state.sideDrawerOpen} />
+          {backdrop}
+          <Switch>
+              <Route exact path="/" component={DashBoard}></Route>
+              <Route path="/login" component={Login}></Route>
+          </Switch>
+          <Footer />
+        </Router>
       </div>
     )
   }

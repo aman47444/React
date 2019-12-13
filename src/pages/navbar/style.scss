@@ -52,7 +52,7 @@
     }
     button {
       align-items: center;
-      background-color: #555555;
+      background-color: rgb(94, 17, 64);
       border: none;
       color: white;
       padding: 15px 32px;
@@ -60,14 +60,14 @@
       text-decoration: none;
       display: inline-block;
       font-size: 16px;
-      margin: 4px 2px;
+      margin: -12px 2px;
       cursor: pointer;
     }
   }
   .menu_item a:hover,
   .menu_item a:active,
   .menu_item a:focus {
-    color: black;
+    color: white;
   }
   .spacer {
     flex: 1;

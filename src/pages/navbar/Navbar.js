@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './style.scss';
+import { Link } from 'react-router-dom';
 import Sidedrawer from './Sidedrawer';
 import img2 from '../../images/img2.png'
 class Navbar extends Component {
@@ -22,41 +23,23 @@ class Navbar extends Component {
                         <Sidedrawer click={this.props.togglehandle} />
                     </div>
                     <div className="menu_logo">
-                        <a href="#">
+                        <Link to="/">
                             <li><img src={img2} /></li>
                             <li><span>Master-G</span></li>
-                        </a>    
+                        </Link>    
                     </div>
                     <div className="spacer" />
                     <div className="menu_item">
                         <ul>
                             <li><a href="#">Student </a></li>
-                            <li><a href="#">Teacher </a></li>
-                            <li><a href="#">Study </a></li>
+                            <li><a href="#">Tutors </a></li>
+                            <li><a href="#">Material </a></li>
                             <li><a href="#">About </a></li>
-                            <li><button>Login</button></li>
+                            <li><Link to="/login"><button>Login</button></Link></li>
                         </ul>
                     </div>
                 </nav>
             </header>
-            // <div className="main_h">
-            //     {/* <div className="row">
-            //         <a className="logo" href="#">P/F</a>
-            //         <div className="mobile_toggle" onClick={this.openMenu}>
-            //             <span></span>
-            //             <span></span>
-            //             <span></span>
-            //         </div>
-            //         <nav className="main_h">
-            //             <ul>
-            //                 <li><a href=".sec01">Section 01</a></li>
-            //                 <li><a href=".sec02">Section 02</a></li>
-            //                 <li><a href=".sec03">Section 03</a></li>
-            //                 <li><a href=".sec04">Section 04</a></li>
-            //             </ul>
-            //         </nav>
-            //     </div> */}
-            // </div>
         )
     }
 }

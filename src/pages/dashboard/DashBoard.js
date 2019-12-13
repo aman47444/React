@@ -11,7 +11,7 @@ class DashBoard extends Component {
                     </div>
                 </div>
                 <div className="row content">
-                    <h1 className="sec01">Section 01</h1>
+                    <h1 className="sec01">Master-G</h1>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum,
                         recusandae, at, labore velit eligendi amet nobis repellat natus sequi sint
