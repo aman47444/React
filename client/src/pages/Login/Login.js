@@ -1,25 +1,59 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 import './style.scss'
+import { loginUser } from '../../actions/authAction'
 class Login extends Component {
+    constructor() {
+        super();
+        this.state = {
+            email: '',
+            password: '',
+            errors: {}
+        }
+    }
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.auth.isAuthenticated) {
+            this.props.history.push('/');
+        }
+        if (nextProps.errors) {
+            this.setState({ errors: nextProps.errors })
+        }
+    }
+    onChange = (e) => {
+        this.setState({ [e.target.name ]: e.target.value });
+    }
+    onSubmit = (e) => {
+        e.preventDefault();
+        const userData = {
+            email: this.state.email,
+            password: this.state.password
+        }
+        this.props.loginUser(userData);
+    }
     render() {
+        const { errors } = this.state;
         return (
             <div>
                 <div className="container">
-                    <form className="form-style">
+                    <form className="form-style" onSubmit={this.onSubmit}>
                         <div className="form-content">
                             <label htmlFor="inp" className="inp">
-                                <input type="text" className="inp" placeholder="Username" />
+                                <input type="text" name="email" value={this.state.email} placeholder="Username" onChange={this.onChange} />
+                                {errors.email && <div className="invalid-feedback">{errors.email}</div>}
                                 <span className="border" />
                             </label>
                             <label htmlFor="inp" className="inp">
-                                <input type="password" id="inp" placeholder="Password" />
+                                <input type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.onChange} />
+                                {errors.password && <div className="invalid-feedback">{errors.password}</div>}
                                 <span className="border" />
                             </label>
                         </div>
                         <div className="btn">
                             <button>Submit</button>
-                            <Link to="/res">Register</Link>
+                            <Link to="/signup">Register</Link>
                         </div>
                     </form>
                 </div>
@@ -27,4 +61,15 @@ class Login extends Component {
         )
     }
 }
-export default Login;
+
+Login.propTypes = {
+    loginUser: propTypes.func.isRequired,
+    auth: propTypes.object.isRequired,
+    errors: propTypes.object.isRequired 
+}
+
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    errors: state.errors
+})
+export default connect(mapStateToProps, { loginUser })(Login);

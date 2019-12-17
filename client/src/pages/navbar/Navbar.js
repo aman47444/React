@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 import './style.scss';
 import { Link } from 'react-router-dom';
 import Sidedrawer from './Sidedrawer';
 import img2 from '../../images/img2.png'
+import { logoutUser } from '../../actions/authAction'
 class Navbar extends Component {
     constructor(props) {
         super(props);
@@ -16,6 +19,7 @@ class Navbar extends Component {
         }
     }
     render() {
+        const { isAuthenticate, user } = this.props.auth;
         return (
             <header className="main_menu">
                 <nav className="menu_nav">
@@ -43,4 +47,14 @@ class Navbar extends Component {
         )
     }
 }
-export default Navbar
+
+Navbar.propTypes = {
+    logoutUser: propTypes.func.isRequired,
+    auth: propTypes.object.isRequired
+}
+
+const mapStateToProps = (state) =>({
+    auth:state.auth
+})
+
+export default connect(mapStateToProps, { logoutUser })(Navbar);

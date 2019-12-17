@@ -5,10 +5,11 @@ import Drawer from './pages/navbar/Drawer';
 import Backdrop from './pages/navbar/Backdrop';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React, { Component } from 'react';
-import Sidedrawer from './pages/navbar/Sidedrawer';
 import Footer from './pages/footer/Footer';
 import Login from './pages/Login/Login';
 import Register from './pages/register/Register'
+import { Provider } from 'react-redux'
+import store from './store'
 class App extends Component {
   constructor() {
     super();
@@ -27,13 +28,12 @@ class App extends Component {
     this.setState({ sideDrawerOpen: false })
   }
   render() {
-    let sideDrawer;
     let backdrop;
     if (this.state.sideDrawerOpen) {
       backdrop = <Backdrop click={this.backdropClick} />
     }
     return (
-      <div>
+      <Provider store={store}>
         <Router>
           <Navbar togglehandle={this.togglehandle} />
           <Drawer show={this.state.sideDrawerOpen} />
@@ -41,11 +41,11 @@ class App extends Component {
           <Switch>
               <Route exact path="/" component={DashBoard}></Route>
               <Route path="/login" component={Login}></Route>
-              <Route path="/res" component={Register}></Route>
+              <Route path="/signup" component={Register}></Route>
           </Switch>
           <Footer />
         </Router>
-      </div>
+      </Provider>
     )
   }
 }
