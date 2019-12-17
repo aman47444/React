@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
@@ -16,10 +15,15 @@ class Login extends Component {
     }
     componentWillReceiveProps(nextProps) {
         if(nextProps.auth.isAuthenticated) {
-            this.props.history.push('/');
+            this.props.history.push('/userdash');
         }
         if (nextProps.errors) {
             this.setState({ errors: nextProps.errors })
+        }
+    }
+    componentDidMount() {
+        if( this.props.auth.isAuthenticated) {
+            this.props.history.push('/userdash');
         }
     }
     onChange = (e) => {
@@ -27,6 +31,7 @@ class Login extends Component {
     }
     onSubmit = (e) => {
         e.preventDefault();
+        console.log("click login")
         const userData = {
             email: this.state.email,
             password: this.state.password

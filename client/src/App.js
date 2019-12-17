@@ -8,8 +8,33 @@ import React, { Component } from 'react';
 import Footer from './pages/footer/Footer';
 import Login from './pages/Login/Login';
 import Register from './pages/register/Register'
-import { Provider } from 'react-redux'
+import Userdash from './pages/userdash/Userdash';
+import PrivateRoute from './pages/common/PrivateRoute';
+import setAuthToken from './utills/setAuthToken';
+import jwt_decode from 'jwt-decode';
+import { Provider } from 'react-redux';
+import { setCurrentUser, logoutUser} from './actions/authAction'
 import store from './store'
+
+if (localStorage.jwtToken) {
+  // set auth token header auth 
+  setAuthToken(localStorage.jwtToken);
+  // decode token and get user info
+  const decoded = jwt_decode(localStorage.jwtToken);
+
+  store.dispatch(setCurrentUser(decoded));
+  // check for expired Token
+  const currentTime = Date.now() / 1000;
+  if (decoded.exp < currentTime) {
+      // logout user
+      store.dispatch(logoutUser());
+      // clear current user
+      // store.dispatch(clearCurrentProfile()); // isko user ka profile banane k time kaam aayega
+
+      window.location.href('/login');
+  }
+}
+
 class App extends Component {
   constructor() {
     super();
@@ -40,8 +65,9 @@ class App extends Component {
           {backdrop}
           <Switch>
               <Route exact path="/" component={DashBoard}></Route>
-              <Route path="/login" component={Login}></Route>
-              <Route path="/signup" component={Register}></Route>
+              <Route exact path="/login" component={Login}></Route>
+              <Route exact path="/signup" component={Register}></Route>
+              <PrivateRoute exact path="/userdash" component={Userdash}></PrivateRoute>
           </Switch>
           <Footer />
         </Router>
